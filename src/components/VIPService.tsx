@@ -66,7 +66,7 @@ export default function VIPService() {
           <div className={`order-1 ${lang === 'en' ? 'md:order-2' : 'md:order-1'} relative`}>
             <div className="aspect-square rounded-full bg-gold/5 absolute -inset-4 blur-3xl"></div>
             <img 
-              src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop" 
+              src="/s-class.jpg" 
               alt="VIP Service" 
               className="relative z-10 rounded-lg border border-gold/20 shadow-2xl shadow-gold/10 object-cover h-[600px] w-full"
             />
