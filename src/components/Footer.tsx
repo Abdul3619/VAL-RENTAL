@@ -15,7 +15,7 @@ export default function Footer() {
           </span>
         </div>
         <p className="text-alabaster/50 text-sm">
-          &copy; {new Date().getFullYear()} Val Car Rental. {t('footer.rights')}
+          &copy; {new Date().getFullYear()} Val Car Rental. {t('footer.rights')} {t('footer.sampleReviews')}
         </p>
       </div>
     </footer>

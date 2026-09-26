@@ -55,6 +55,7 @@ const translations = {
     'reviews.title': 'What Our Travelers Say',
     'reviews.subtitle': 'Authentic experiences from our esteemed clients.',
     'footer.rights': 'All rights reserved.',
+    'footer.sampleReviews': 'Reviews shown are sample content.',
   },
   ar: {
     'nav.home': 'الرئيسية',
@@ -102,6 +103,7 @@ const translations = {
     'reviews.title': 'ماذا يقول مسافرونا',
     'reviews.subtitle': 'تجارب حقيقية من عملائنا الكرام.',
     'footer.rights': 'جميع الحقوق محفوظة.',
+    'footer.sampleReviews': 'التقييمات المعروضة هي محتوى توضيحي.',
   }
 };
 
