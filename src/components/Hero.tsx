@@ -1,23 +1,38 @@
 import { useLanguage } from '../context/LanguageContext';
 import { ChevronRight } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 export default function Hero({ onBookClick }: { onBookClick?: () => void }) {
   const { t, lang } = useLanguage();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Background video must be muted to autoplay; make sure it is and start it if the browser did not
+  // (e.g. autoplay was evaluated before hydration). If playback is refused, the poster image stays.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    if (video.paused) video.play().catch(() => {});
+  }, []);
 
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video 
+          ref={videoRef}
           autoPlay 
           loop 
           muted 
           playsInline
+          preload="auto"
           poster="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop"
           className="w-full h-full object-cover opacity-60"
         >
-          {/* To use your own video, add public/video-hero.mp4 and list it as the first <source> */}
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-white-sports-car-driving-in-a-desert-34988-large.mp4" type="video/mp4" />
+          {/* Served from public/ (Vite only publishes files in public/, so the video must live there).
+              WebM (VP9) is smaller and plays in Chrome, Edge and Firefox; the MP4 (H.264) covers Safari/iOS. */}
+          <source src="/video-hero.webm" type="video/webm" />
+          <source src="/video-hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-obsidian/50 to-obsidian"></div>
       </div>
