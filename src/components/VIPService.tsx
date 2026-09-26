@@ -58,9 +58,14 @@ export default function VIPService() {
               </div>
             </div>
             
-            <button className="px-8 py-3 border-2 border-gold text-gold hover:bg-gold hover:text-obsidian font-bold transition-colors rounded-sm">
+            <a
+              href={`https://wa.me/966501622496?text=${encodeURIComponent(lang === 'en' ? 'Hello, I would like to know more about your VIP airport and residence pick-up service.' : 'مرحباً، أود معرفة المزيد عن خدمة الاستقبال من المطار والتوصيل لمكان الإقامة.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-3 border-2 border-gold text-gold hover:bg-gold hover:text-obsidian font-bold transition-colors rounded-sm"
+            >
               {t('vip.cta')}
-            </button>
+            </a>
           </div>
           
           <div className={`order-1 ${lang === 'en' ? 'md:order-2' : 'md:order-1'} relative`}>
