@@ -16,9 +16,7 @@ export default function Hero({ onBookClick }: { onBookClick?: () => void }) {
           poster="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop"
           className="w-full h-full object-cover opacity-60"
         >
-          {/* User's uploaded video should be placed in /public/video-hero.mp4 */}
-          <source src="/video-hero.mp4" type="video/mp4" />
-          {/* Fallback video while the upload is failing */}
+          {/* To use your own video, add public/video-hero.mp4 and list it as the first <source> */}
           <source src="https://assets.mixkit.co/videos/preview/mixkit-white-sports-car-driving-in-a-desert-34988-large.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-obsidian/50 to-obsidian"></div>

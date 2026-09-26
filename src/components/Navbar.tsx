@@ -37,6 +37,7 @@ export default function Navbar({ onNavigate, currentPage }: { onNavigate?: (page
 
           <button 
             onClick={toggleLang}
+            aria-label={lang === 'en' ? 'Switch to Arabic' : 'Switch to English'}
             className="flex items-center gap-2 px-4 py-2 rounded-full border border-gold/50 text-gold hover:bg-gold hover:text-obsidian transition-all"
           >
             <Globe className="w-4 h-4" />

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -14,8 +14,29 @@ import FloatingActions from './components/FloatingActions';
 import Footer from './components/Footer';
 import FleetPage from './components/FleetPage';
 
-export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'fleet'>('home');
+export type Page = 'home' | 'fleet';
+
+export function pageFromPath(pathname: string): Page {
+  return pathname.replace(/\/+$/, '') === '/fleet' ? 'fleet' : 'home';
+}
+
+export default function App({ initialPage = 'home' }: { initialPage?: Page }) {
+  const [currentPage, setPage] = useState<Page>(initialPage);
+
+  // Each page has its own URL (/ and /fleet) so refresh, sharing and the browser back button work
+  const setCurrentPage = (page: Page) => {
+    const path = page === 'fleet' ? '/fleet' : '/';
+    if (window.location.pathname !== path) {
+      window.history.pushState({ page }, '', path);
+    }
+    setPage(page);
+  };
+
+  useEffect(() => {
+    const onPopState = () => setPage(pageFromPath(window.location.pathname));
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   return (
     <LanguageProvider>
