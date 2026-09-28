@@ -17,6 +17,12 @@ export default function Footer() {
         <p className="text-alabaster/50 text-sm">
           &copy; {new Date().getFullYear()} Val Car Rental. {t('footer.rights')} {t('footer.sampleReviews')}
         </p>
+        <p className="text-alabaster/50 text-sm">
+          {t('footer.builtBy')} ·{' '}
+          <a href="mailto:abdulwahababdullahi3619@gmail.com" className="text-gold hover:underline">
+            {t('footer.contactDev')}
+          </a>
+        </p>
       </div>
     </footer>
   );

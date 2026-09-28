@@ -1,6 +1,6 @@
 # Val Car Rental
 
-Bilingual (English / Arabic) website for Val Car Rental in Wadi ad-Dawasir, Saudi Arabia. Visitors browse the fleet and send reservation requests to the business on WhatsApp.
+I built this bilingual (English / Arabic) website for Val Car Rental in Wadi ad-Dawasir, Saudi Arabia. Visitors browse the fleet and send reservation requests straight to the business on WhatsApp.
 
 ## Stack
 

@@ -56,6 +56,8 @@ const translations = {
     'reviews.subtitle': 'Authentic experiences from our esteemed clients.',
     'footer.rights': 'All rights reserved.',
     'footer.sampleReviews': 'Reviews shown are sample content.',
+    'footer.builtBy': 'Built by Abdulwahab Abdullahi',
+    'footer.contactDev': 'Contact the developer',
   },
   ar: {
     'nav.home': 'الرئيسية',
@@ -104,6 +106,8 @@ const translations = {
     'reviews.subtitle': 'تجارب حقيقية من عملائنا الكرام.',
     'footer.rights': 'جميع الحقوق محفوظة.',
     'footer.sampleReviews': 'التقييمات المعروضة هي محتوى توضيحي.',
+    'footer.builtBy': 'تطوير عبد الوهاب عبدالله',
+    'footer.contactDev': 'تواصل مع المطور',
   }
 };
 
