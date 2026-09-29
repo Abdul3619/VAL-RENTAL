@@ -1,6 +1,7 @@
 import { useLanguage } from '../context/LanguageContext';
 import { ChevronRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import { cars } from '../data/cars';
 
 export default function Hero({ onBookClick }: { onBookClick?: () => void }) {
   const { t, lang } = useLanguage();
@@ -19,14 +20,15 @@ export default function Hero({ onBookClick }: { onBookClick?: () => void }) {
     <div className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <video 
+        <video
           ref={videoRef}
+          aria-hidden="true"
           autoPlay 
           loop 
           muted 
           playsInline
           preload="auto"
-          poster="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop"
+          poster={cars[7].images[0].src}
           className="w-full h-full object-cover opacity-60"
         >
           {/* Served from public/ (Vite only publishes files in public/, so the video must live there).
@@ -50,7 +52,7 @@ export default function Hero({ onBookClick }: { onBookClick?: () => void }) {
         </p>
         <button 
           onClick={onBookClick}
-          className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-obsidian bg-gold rounded-sm overflow-hidden transition-all hover:scale-105">
+          className="press group relative inline-flex items-center justify-center px-8 py-4 font-bold text-obsidian bg-gold rounded-sm overflow-hidden transition-all hover:scale-105">
           <span className="relative z-10 flex items-center gap-2">
             {t('hero.cta')}
             <ChevronRight className={`w-5 h-5 ${lang === 'ar' ? 'rotate-180' : ''} group-hover:translate-x-1 transition-transform`} />

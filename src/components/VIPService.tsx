@@ -1,5 +1,7 @@
 import { useLanguage } from '../context/LanguageContext';
 import { MapPin, Plane, Clock } from 'lucide-react';
+import { cars } from '../data/cars';
+import { whatsappLink } from '../data/site';
 
 export default function VIPService() {
   const { t, lang } = useLanguage();
@@ -20,11 +22,11 @@ export default function VIPService() {
                   <Plane className="w-6 h-6 text-gold" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-alabaster mb-1">
+                  <h3 className="text-lg font-bold text-alabaster mb-1">
                     {lang === 'en' ? 'Airport Meet & Greet' : 'استقبال في المطار'}
-                  </h4>
-                  <p className="text-alabaster/60">
-                    {lang === 'en' ? 'Direct handover at Wadi ad-Dawasir Domestic Airport.' : 'تسليم مباشر في مطار وادي الدواسر المحلي.'}
+                  </h3>
+                  <p className="text-alabaster/75">
+                    {t('vip.airport')}
                   </p>
                 </div>
               </div>
@@ -34,10 +36,10 @@ export default function VIPService() {
                   <MapPin className="w-6 h-6 text-gold" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-alabaster mb-1">
+                  <h3 className="text-lg font-bold text-alabaster mb-1">
                     {lang === 'en' ? 'Residence Delivery' : 'توصيل لمكان الإقامة'}
-                  </h4>
-                  <p className="text-alabaster/60">
+                  </h3>
+                  <p className="text-alabaster/75">
                     {lang === 'en' ? 'Your vehicle waiting for you at your hotel or home.' : 'سيارتك بانتظارك في فندقك أو منزلك.'}
                   </p>
                 </div>
@@ -48,10 +50,10 @@ export default function VIPService() {
                   <Clock className="w-6 h-6 text-gold" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-alabaster mb-1">
+                  <h3 className="text-lg font-bold text-alabaster mb-1">
                     {lang === 'en' ? '24/7 Availability' : 'متاح على مدار الساعة'}
-                  </h4>
-                  <p className="text-alabaster/60">
+                  </h3>
+                  <p className="text-alabaster/75">
                     {lang === 'en' ? 'We operate on your schedule, day or night.' : 'نعمل وفق جدولك الزمني، ليلاً أو نهاراً.'}
                   </p>
                 </div>
@@ -59,10 +61,10 @@ export default function VIPService() {
             </div>
             
             <a
-              href={`https://wa.me/966501622496?text=${encodeURIComponent(lang === 'en' ? 'Hello, I would like to know more about your VIP airport and residence pick-up service.' : 'مرحباً، أود معرفة المزيد عن خدمة الاستقبال من المطار والتوصيل لمكان الإقامة.')}`}
+              href={whatsappLink(lang === 'en' ? 'Hello, I would like to know more about your VIP airport and residence pick-up service.' : 'مرحباً، أود معرفة المزيد عن خدمة الاستقبال من المطار والتوصيل لمكان الإقامة.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-3 border-2 border-gold text-gold hover:bg-gold hover:text-obsidian font-bold transition-colors rounded-sm"
+              className="press inline-block px-8 py-3 border-2 border-gold text-gold hover:bg-gold hover:text-obsidian font-bold transition-colors rounded-sm"
             >
               {t('vip.cta')}
             </a>
@@ -70,9 +72,13 @@ export default function VIPService() {
           
           <div className={`order-1 ${lang === 'en' ? 'md:order-2' : 'md:order-1'} relative`}>
             <div className="aspect-square rounded-full bg-gold/5 absolute -inset-4 blur-3xl"></div>
-            <img 
-              src="/s-class.jpg" 
-              alt="VIP Service" 
+            <img
+              src={cars[4].images[0].src}
+              srcSet={cars[4].images[0].srcSet}
+              sizes="(min-width: 768px) 50vw, 100vw"
+              loading="lazy"
+              decoding="async"
+              alt={lang === 'en' ? 'A white Mercedes-Benz S-Class ready for delivery' : 'مرسيدس اس كلاس بيضاء جاهزة للتسليم'}
               className="relative z-10 rounded-lg border border-gold/20 shadow-2xl shadow-gold/10 object-cover h-[600px] w-full"
             />
           </div>

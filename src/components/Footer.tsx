@@ -11,15 +11,15 @@ export default function Footer() {
             V
           </div>
           <span className="font-bold text-lg tracking-wider text-alabaster">
-            VAL <span className="text-gold">RENTAL</span>
+            VELOCITY <span className="text-gold">RENTALS</span>
           </span>
         </div>
-        <p className="text-alabaster/50 text-sm">
-          &copy; {new Date().getFullYear()} Val Car Rental. {t('footer.rights')} {t('footer.sampleReviews')}
+        <p className="text-alabaster/70 text-sm">
+          &copy; {new Date().getFullYear()} Velocity Rentals. {t('footer.rights')} {t('footer.sampleReviews')}
         </p>
-        <p className="text-alabaster/50 text-sm">
+        <p className="text-alabaster/70 text-sm">
           {t('footer.builtBy')} ·{' '}
-          <a href="mailto:abdulwahababdullahi3619@gmail.com" className="text-gold hover:underline">
+          <a href="mailto:abdulwahababdullahi3619@gmail.com" className="text-gold underline underline-offset-2">
             {t('footer.contactDev')}
           </a>
         </p>
