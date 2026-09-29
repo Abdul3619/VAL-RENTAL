@@ -1,27 +1,19 @@
-import { MessageCircle, Phone } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { whatsappLink } from '../data/site';
 
 export default function FloatingActions() {
+  const { lang } = useLanguage();
+  // No call button: the demo brand has no real phone number (see src/data/site.ts)
   return (
-    <>
-      {/* WhatsApp - Bottom Right (or Left in RTL, but we can fix to screen positions) */}
-      <a 
-        href="https://wa.me/966501622496" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/30 hover:scale-110 transition-transform"
-        aria-label="WhatsApp"
-      >
-        <MessageCircle className="w-7 h-7" />
-      </a>
-
-      {/* Call Now - Bottom Left (Mobile Only) */}
-      <a 
-        href="tel:+966501622496" 
-        className="md:hidden fixed bottom-6 left-6 z-50 w-14 h-14 bg-gold text-obsidian rounded-full flex items-center justify-center shadow-lg shadow-gold/30 hover:scale-110 transition-transform"
-        aria-label="Call Now"
-      >
-        <Phone className="w-6 h-6" />
-      </a>
-    </>
+    <a
+      href={whatsappLink(lang === 'en' ? 'Hello, I would like to ask about renting a car.' : 'مرحباً، أود الاستفسار عن استئجار سيارة.')}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="press fixed bottom-6 right-6 rtl:right-auto rtl:left-6 z-50 w-14 h-14 bg-[#25D366] text-obsidian rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/30 hover:scale-110 transition-transform"
+      aria-label={lang === 'en' ? 'Chat on WhatsApp' : 'تواصل عبر واتساب'}
+    >
+      <MessageCircle className="w-7 h-7" aria-hidden="true" />
+    </a>
   );
 }
